@@ -3,6 +3,6 @@ name = "kaleidoscope-tutorial"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+lalrpop-util = { git = "https://github.com/Michael-F-Bryan/lalrpop", features = ["lexer"], branch = "custom-lexer" }
+
