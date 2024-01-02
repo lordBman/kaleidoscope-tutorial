@@ -8,6 +8,24 @@ pub enum Token<'input>{
     Number(f32)
 }
 
+impl<'a> From<i32> for Token<'a>{
+    fn from(value: i32) -> Self {
+        Token::Number(value as f32)
+    }
+}
+
+impl<'a> From<f32> for Token<'a>{
+    fn from(value: f32) -> Self {
+        Token::Number(value)
+    }
+}
+
+impl<'a> From<&'a str> for Token<'a>{
+    fn from(value: &'a str) -> Self {
+        Token::Identifier(value)
+    }
+}
+
 pub fn construct_lexer(src: &str) -> Lexer<Token>{
     let mut lexer = Lexer::new(src).skipping(r"^\s+|#.*$");
 
